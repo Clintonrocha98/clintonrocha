@@ -3,6 +3,8 @@ import { Roboto } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/react";
 import ContainerApp from "./components/ContainerApp";
+import { Toaster } from "react-hot-toast";
+import { LocalStorageProvider } from "@/hooks/useContext";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -18,7 +20,10 @@ export default function PortoPizzasLayout({ children }) {
     return (
         <html lang="pt-BR">
             <body className={roboto.className}>
-                <ContainerApp>{children}</ContainerApp>
+                <Toaster />
+                <LocalStorageProvider>
+                    <ContainerApp>{children}</ContainerApp>
+                </LocalStorageProvider>
                 <Analytics />
             </body>
         </html>

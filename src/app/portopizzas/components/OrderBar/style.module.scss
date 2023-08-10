@@ -1,0 +1,47 @@
+.orderBar {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+    padding: 0 10px;
+
+    button {
+        height: 50px;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 0.9375rem;
+        border: none;
+
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .sizeButton {
+        border-radius: 0.9375rem;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            width: 50px;
+            border: none;
+            background-color: transparent;
+        }
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+
+    .adcionarButton {
+        background-color: #30f5309e;
+        color: white;
+        &:disabled {
+            opacity: 0.5;
+            cursor: auto;
+        }
+    }
+}

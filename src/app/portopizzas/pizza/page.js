@@ -5,24 +5,34 @@ import pizzaSizes from "@/utils/data/pizzaSizes.json";
 import pizzaBords from "@/utils/data/pizzaBords.json";
 
 import RenderInput from "../components/Form/RenderInput";
+
 import { useState } from "react";
 
+import generateUniqueId from "@/utils/generateUniqueId";
+
+import OrderBar from "../components/OrderBar";
+
+import styles from "./styles.module.scss";
+import { IconArrowLeft, IconArrowRight } from "../components/SVG";
+
 function Pizza() {
+    const ID = generateUniqueId();
+
     const [currentStep, setCurrentStep] = useState(0);
 
     const [formData, setFormData] = useState({
+        id: ID,
         sabores: [],
         tamanho: { name: "", value: "" },
         borda: { name: "", value: "" },
+        quantidade: 1,
     });
-    console.log(formData);
 
     const handleInputChange = (fieldName, value) => {
-        
         if (fieldName === "sabores") {
             setFormData({
                 ...formData,
-                sabores: value ,
+                sabores: value,
             });
         } else {
             setFormData({
@@ -35,10 +45,6 @@ function Pizza() {
     const handleNextStep = () => {
         setCurrentStep((prevStep) => prevStep + 1);
     };
-
-    // const addPizza = () =>{
-
-    // }
 
     const renderStep = () => {
         switch (currentStep) {
@@ -80,23 +86,33 @@ function Pizza() {
     return (
         <>
             {renderStep()}
+            <div className={styles.steps}>
+                {currentStep > 0 && (
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setCurrentStep((prevStep) => prevStep - 1)
+                        }
+                        title="Voltar"
+                    >
+                        <IconArrowLeft />
+                    </button>
+                )}
 
-            {currentStep > 0 && (
-                <button
-                    type="button"
-                    onClick={() => setCurrentStep((prevStep) => prevStep - 1)}
-                >
-                    Voltar
-                </button>
+                {currentStep < 2 && (
+                    <button
+                        type="button"
+                        onClick={handleNextStep}
+                        title="próximo"
+                        className={styles.next}
+                    >
+                        <IconArrowRight />
+                    </button>
+                )}
+            </div>
+            {currentStep === 2 && (
+                <OrderBar formData={formData} setFormData={setFormData} />
             )}
-
-            {currentStep < 2 && (
-                <button type="button" onClick={handleNextStep}>
-                    Próximo
-                </button>
-            )}
-
-            {currentStep === 2 && <button>Adicionar Pizza</button>}
         </>
     );
 }
