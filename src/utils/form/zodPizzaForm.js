@@ -1,7 +1,10 @@
 import { z as zod } from "zod";
 
-export const zodPizzaFormSchema = zod.object({
-    tamanho: zod.string().nonempty("Selecione uma opção"),
+const nestedObjectSchema = zod.object({
+    tamanho: zod.string(),
     sabores: zod.array(zod.string().nonempty("Selecione uma opção")),
     borda: zod.string().optional(),
+});
+export const zodPizzaFormSchema = zod.object({
+    dynamicObjects: zod.record(nestedObjectSchema),
 });

@@ -4,62 +4,72 @@ import pizzas from "@/utils/data/pizzas.json";
 import pizzaSizes from "@/utils/data/pizzaSizes.json";
 import pizzaBords from "@/utils/data/pizzaBords.json";
 
-import { useForm } from "react-hook-form";
-
-import { zodResolver } from "@hookform/resolvers/zod";
-import { zodPizzaFormSchema } from "@/utils/form";
-
+import RenderInput from "../components/Form/RenderInput";
 import { useState } from "react";
-import ContainerForm from "../components/Form/ContainerForm";
-import InputCheckboxRadio from "../components/Form/InputCheckboxRadio";
-
-
 
 function Pizza() {
     const [currentStep, setCurrentStep] = useState(0);
 
-    const methods = useForm({
-        mode: "all",
-        resolver: zodResolver(zodPizzaFormSchema),
-        defaultValues: {
-            tamanho: "",
-            sabores: [],
-            borda: "",
-        },
+    const [formData, setFormData] = useState({
+        sabores: [],
+        tamanho: { name: "", value: "" },
+        borda: { name: "", value: "" },
     });
+    console.log(formData);
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const handleInputChange = (fieldName, value) => {
+        
+        if (fieldName === "sabores") {
+            setFormData({
+                ...formData,
+                sabores: value ,
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [fieldName]: { ...value },
+            });
+        }
     };
 
     const handleNextStep = () => {
         setCurrentStep((prevStep) => prevStep + 1);
     };
 
+    // const addPizza = () =>{
+
+    // }
+
     const renderStep = () => {
         switch (currentStep) {
             case 0:
                 return (
-                    <InputCheckboxRadio
+                    <RenderInput
                         type={"radio"}
                         options={pizzaSizes}
-                        name={"tamanho"}
+                        fieldName={"tamanho"}
+                        onChange={handleInputChange}
+                        selectedOption={formData.tamanho}
                     />
                 );
             case 1:
                 return (
-                    <InputCheckboxRadio
+                    <RenderInput
                         type={"checkbox"}
                         options={pizzas}
-                        name={"sabores"}
+                        fieldName={"sabores"}
+                        onChange={handleInputChange}
+                        selectedOption={formData.sabores}
                     />
                 );
             case 2:
                 return (
-                    <InputCheckboxRadio
+                    <RenderInput
                         type={"radio"}
                         options={pizzaBords}
-                        name={"borda"}
+                        fieldName={"borda"}
+                        onChange={handleInputChange}
+                        selectedOption={formData.borda}
                     />
                 );
 
@@ -68,7 +78,7 @@ function Pizza() {
         }
     };
     return (
-        <ContainerForm methods={methods} onSubmit={onSubmit}>
+        <>
             {renderStep()}
 
             {currentStep > 0 && (
@@ -86,10 +96,8 @@ function Pizza() {
                 </button>
             )}
 
-            {currentStep === 2 && (
-                <button type="submit">Finalizar Pedido</button>
-            )}
-        </ContainerForm>
+            {currentStep === 2 && <button>Adicionar Pizza</button>}
+        </>
     );
 }
 
