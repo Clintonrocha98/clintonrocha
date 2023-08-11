@@ -2,9 +2,11 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    
+    position: relative;
+    padding: 10px;
+    min-height: 100vh;
 
-    a {
+    > a {
         width: 100px;
         height: 100px;
         text-decoration: none;

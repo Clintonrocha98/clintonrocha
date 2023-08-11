@@ -21,22 +21,26 @@ const OrderBar = ({ setFormData, formData }) => {
     function calcularTotal(pedido) {
         let total = 0;
 
-        pedido.sabores.forEach((sabor) => {
-            total += Number(sabor.value);
-        });
+        if (pedido.sabores) {
+            pedido.sabores.forEach((sabor) => {
+                total += Number(sabor.value);
+            });
+            total += Number(pedido.tamanho.value);
 
-        total += Number(pedido.tamanho.value);
-
-        total += Number(pedido.borda.value);
+            total += Number(pedido.borda.value);
+        } else {
+            total += Number(pedido.bebida.value);
+        }
 
         return total * pedido.quantidade;
     }
     return (
         <div className={styles.orderBar}>
-            <div className={styles.sizeButton}>
+            <div className={styles.sizeButton} title="Quantidade">
                 <button
                     onClick={diminuirQuantidade}
                     className={styles.leftButton}
+                    aria-label="deminuir"
                 >
                     <IconSubtraction />
                 </button>
@@ -44,6 +48,7 @@ const OrderBar = ({ setFormData, formData }) => {
                 <button
                     onClick={aumentarQuantidade}
                     className={styles.rightButton}
+                    aria-label="aumentar"
                 >
                     <IconAddition />
                 </button>
@@ -53,7 +58,7 @@ const OrderBar = ({ setFormData, formData }) => {
                 className={styles.adcionarButton}
                 disabled={calcularTotal(formData) === 0}
             >
-                Adicionar R$ {calcularTotal(formData)}
+                Adicionar R${calcularTotal(formData)}
             </BuyButton>
         </div>
     );

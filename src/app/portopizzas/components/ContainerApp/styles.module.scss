@@ -1,14 +1,12 @@
 .PortoPizza {
     background-color: #161616;
     min-height: 100vh;
+
     .contentProducts {
         display: flex;
         flex-direction: column;
         gap: 10px;
         max-width: 500px;
         margin: 0 auto;
-        min-height: 100vh;
-        position: relative;
-        padding: 20px 10px;
     }
 }

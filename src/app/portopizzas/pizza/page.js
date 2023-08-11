@@ -14,6 +14,7 @@ import OrderBar from "../components/OrderBar";
 
 import styles from "./styles.module.scss";
 import { IconArrowLeft, IconArrowRight } from "../components/SVG";
+import { Title } from "../components/Title";
 
 function Pizza() {
     const ID = generateUniqueId();
@@ -50,33 +51,51 @@ function Pizza() {
         switch (currentStep) {
             case 0:
                 return (
-                    <RenderInput
-                        type={"radio"}
-                        options={pizzaSizes}
-                        fieldName={"tamanho"}
-                        onChange={handleInputChange}
-                        selectedOption={formData.tamanho}
-                    />
+                    <>
+                        <Title
+                            text={"Pizzas"}
+                            subText={"Escolha a opção que te agrada"}
+                        />
+                        <RenderInput
+                            type={"radio"}
+                            options={pizzaSizes}
+                            fieldName={"tamanho"}
+                            onChange={handleInputChange}
+                            selectedOption={formData.tamanho}
+                        />
+                    </>
                 );
             case 1:
                 return (
-                    <RenderInput
-                        type={"checkbox"}
-                        options={pizzas}
-                        fieldName={"sabores"}
-                        onChange={handleInputChange}
-                        selectedOption={formData.sabores}
-                    />
+                    <>
+                        <Title
+                            text={"Sabores"}
+                            subText={"Monte sua pizza com os melhores sabores"}
+                        />
+                        <RenderInput
+                            type={"checkbox"}
+                            options={pizzas}
+                            fieldName={"sabores"}
+                            onChange={handleInputChange}
+                            selectedOption={formData.sabores}
+                        />
+                    </>
                 );
             case 2:
                 return (
-                    <RenderInput
-                        type={"radio"}
-                        options={pizzaBords}
-                        fieldName={"borda"}
-                        onChange={handleInputChange}
-                        selectedOption={formData.borda}
-                    />
+                    <>
+                        <Title
+                            text={"Bordas"}
+                            subText={"Por ultimo, mas não menos importante"}
+                        />
+                        <RenderInput
+                            type={"radio"}
+                            options={pizzaBords}
+                            fieldName={"borda"}
+                            onChange={handleInputChange}
+                            selectedOption={formData.borda}
+                        />
+                    </>
                 );
 
             default:
@@ -85,31 +104,33 @@ function Pizza() {
     };
     return (
         <>
-            {renderStep()}
-            <div className={styles.steps}>
-                {currentStep > 0 && (
-                    <button
-                        type="button"
-                        onClick={() =>
-                            setCurrentStep((prevStep) => prevStep - 1)
-                        }
-                        title="Voltar"
-                    >
-                        <IconArrowLeft />
-                    </button>
-                )}
+            <section className={styles.container}>
+                {renderStep()}
+                <div className={styles.steps}>
+                    {currentStep > 0 && (
+                        <button
+                            type="button"
+                            onClick={() =>
+                                setCurrentStep((prevStep) => prevStep - 1)
+                            }
+                            title="Voltar"
+                        >
+                            <IconArrowLeft />
+                        </button>
+                    )}
 
-                {currentStep < 2 && (
-                    <button
-                        type="button"
-                        onClick={handleNextStep}
-                        title="próximo"
-                        className={styles.next}
-                    >
-                        <IconArrowRight />
-                    </button>
-                )}
-            </div>
+                    {currentStep < 2 && (
+                        <button
+                            type="button"
+                            onClick={handleNextStep}
+                            title="próximo"
+                            className={styles.next}
+                        >
+                            <IconArrowRight />
+                        </button>
+                    )}
+                </div>
+            </section>
             {currentStep === 2 && (
                 <OrderBar formData={formData} setFormData={setFormData} />
             )}

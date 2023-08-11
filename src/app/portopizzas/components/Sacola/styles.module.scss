@@ -1,0 +1,37 @@
+.sacola {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #C51605;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius:  10px 10px 0 0;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+
+    .bag {
+        position: relative;
+
+        span {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            background-color: white;
+            border-radius: 10px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            
+            color: #C51605;
+        }
+    }
+    
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
+}

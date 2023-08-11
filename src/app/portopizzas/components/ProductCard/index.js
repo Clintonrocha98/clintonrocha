@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 
 const ProductCard = ({ img, name, value, description }) => {
     return (
-        <article className={styles.ProductCard}>
+        <article className={styles.ProductCard} title={name}>
             {img && (
                 <img
                     src={img}

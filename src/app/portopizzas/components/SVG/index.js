@@ -6,3 +6,4 @@ export { IconSubtraction } from "./IconSubtraction";
 export { IconAddition } from "./IconAddition";
 export { IconArrowRight } from "./IconArrowRight";
 export { IconArrowLeft } from "./IconArrowLeft";
+export { IconBag } from "./IconBag";
