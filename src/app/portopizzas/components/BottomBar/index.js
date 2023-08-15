@@ -1,19 +1,17 @@
 "use client";
 
-import { LocalStorageContext } from "@/hooks/useContext";
+import { LocalStorageContext } from "@/app/portopizzas/hooks/useContext";
 import { useContext } from "react";
 
 import styles from "./styles.module.scss";
-import { IconBag } from "../SVG";
 import Link from "next/link";
 
-const Sacola = () => {
+import { AiOutlineHome } from "react-icons/ai";
+import { BiShoppingBag } from "react-icons/bi";
+
+const BottomBar = () => {
     const { productsForPurchaseOnLocalStorage } =
         useContext(LocalStorageContext);
-
-    if (productsForPurchaseOnLocalStorage.length === 0) {
-        return null;
-    }
 
     function calculateTotal(order) {
         let total = 0;
@@ -42,16 +40,24 @@ const Sacola = () => {
     }
 
     return (
-        <section className={styles.sacola}>
-            <div className={styles.bag}>
-                <IconBag />
-                <span>{productsForPurchaseOnLocalStorage.length}</span>
-            </div>
-            <Link href={"/portopizzas/sacola"}>Ver sacola</Link>
-            <p>
-                R${calculateTotal(productsForPurchaseOnLocalStorage).toFixed(2)}
-            </p>
+        <section className={`${styles.sacola} animate__backInUp animate__animated animate__faster`}>
+            
+            <Link href={"/portopizzas"}>
+                <AiOutlineHome />
+            </Link>
+
+            <Link href={"/portopizzas/sacola"} className={styles.bag}>
+                <BiShoppingBag />
+                {productsForPurchaseOnLocalStorage.length > 0 && (
+                    <span
+                        className={`animate__shakeY animate__animated animate__infinite animate__delay-2s animate__slower`}
+                    >
+                        {productsForPurchaseOnLocalStorage.length}
+                    </span>
+                )}
+            </Link>
+
         </section>
     );
 };
-export default Sacola;
+export default BottomBar;

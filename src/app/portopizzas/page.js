@@ -2,21 +2,28 @@
 import Link from "next/link";
 import { IconDrink, IconPizza } from "./components/SVG";
 import styles from "./styles.module.scss";
-import Sacola from "./components/Sacola";
+
 
 const Portopizzas = () => {
     return (
         <section className={styles.PortoPizza}>
-            <Link href={"/portopizzas/pizza"} title="Pizza">
+            <Link
+                href={"/portopizzas/pizza"}
+                title="Pizza"
+                className="animate__backInLeft animate__animated animate__faster"
+            >
                 <IconPizza />
                 <p>Pizza</p>
             </Link>
 
-            <Link href={"/portopizzas/bebidas"} title="Bebidas">
+            <Link
+                href={"/portopizzas/bebidas"}
+                title="Bebidas"
+                className="animate__backInRight animate__animated animate__faster"
+            >
                 <IconDrink />
                 <p>Bebidas</p>
             </Link>
-            <Sacola />
         </section>
     );
 };

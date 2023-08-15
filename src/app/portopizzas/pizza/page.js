@@ -47,11 +47,24 @@ function Pizza() {
         setCurrentStep((prevStep) => prevStep + 1);
     };
 
+    function animate() {
+        switch (currentStep) {
+            case 0:
+                return "animate__backInLeft animate__animated animate__faster";
+            case 1:
+                return "animate__backInRight animate__animated animate__faster";
+            case 2:
+                return "animate__backInLeft animate__animated animate__faster";
+            default:
+                return null;
+        }
+    }
+
     const renderStep = () => {
         switch (currentStep) {
             case 0:
                 return (
-                    <>
+                    <section className={`${styles.container} ${animate()}`}>
                         <Title
                             text={"Pizzas"}
                             subText={"Escolha a opção que te agrada"}
@@ -63,11 +76,11 @@ function Pizza() {
                             onChange={handleInputChange}
                             selectedOption={formData.tamanho}
                         />
-                    </>
+                    </section>
                 );
             case 1:
                 return (
-                    <>
+                    <section className={`${styles.container} ${animate()}`}>
                         <Title
                             text={"Sabores"}
                             subText={"Monte sua pizza com os melhores sabores"}
@@ -79,11 +92,11 @@ function Pizza() {
                             onChange={handleInputChange}
                             selectedOption={formData.sabores}
                         />
-                    </>
+                    </section>
                 );
             case 2:
                 return (
-                    <>
+                    <section className={`${styles.container} ${animate()}`}>
                         <Title
                             text={"Bordas"}
                             subText={"Por ultimo, mas não menos importante"}
@@ -95,7 +108,7 @@ function Pizza() {
                             onChange={handleInputChange}
                             selectedOption={formData.borda}
                         />
-                    </>
+                    </section>
                 );
 
             default:
@@ -104,33 +117,31 @@ function Pizza() {
     };
     return (
         <>
-            <section className={styles.container}>
-                {renderStep()}
-                <div className={styles.steps}>
-                    {currentStep > 0 && (
-                        <button
-                            type="button"
-                            onClick={() =>
-                                setCurrentStep((prevStep) => prevStep - 1)
-                            }
-                            title="Voltar"
-                        >
-                            <IconArrowLeft />
-                        </button>
-                    )}
+            {renderStep()}
+            <div className={`${styles.steps} ${animate()}`}>
+                {currentStep > 0 && (
+                    <button
+                        type="button"
+                        onClick={() =>
+                            setCurrentStep((prevStep) => prevStep - 1)
+                        }
+                        title="Voltar"
+                    >
+                        <IconArrowLeft />
+                    </button>
+                )}
 
-                    {currentStep < 2 && (
-                        <button
-                            type="button"
-                            onClick={handleNextStep}
-                            title="próximo"
-                            className={styles.next}
-                        >
-                            <IconArrowRight />
-                        </button>
-                    )}
-                </div>
-            </section>
+                {currentStep < 2 && (
+                    <button
+                        type="button"
+                        onClick={handleNextStep}
+                        title="próximo"
+                        className={styles.next}
+                    >
+                        <IconArrowRight />
+                    </button>
+                )}
+            </div>
             {currentStep === 2 && (
                 <OrderBar formData={formData} setFormData={setFormData} />
             )}

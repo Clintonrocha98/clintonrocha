@@ -8,9 +8,12 @@ export const LocalStorageProvider = ({ children }) => {
         productsForPurchaseOnLocalStorage,
         setProductsForPurchaseOnLocalStorage,
     ] = useState([]);
+    const [address, setAddress] = useState([]);
 
     useEffect(() => {
         const storedBuys = JSON.parse(localStorage.getItem("pizzaria")) || [];
+        const storedAddress = JSON.parse(localStorage.getItem("address")) || [];
+        setAddress(storedAddress);
         setProductsForPurchaseOnLocalStorage(storedBuys);
     }, []);
 
@@ -29,12 +32,17 @@ export const LocalStorageProvider = ({ children }) => {
         localStorage.setItem("pizzaria", JSON.stringify(updatedBuys));
         setProductsForPurchaseOnLocalStorage(updatedBuys);
     };
-
+    const saveAddress = (data) => {
+        localStorage.setItem("address", JSON.stringify(data));
+        setAddress(data);
+    };
     return (
         <LocalStorageContext.Provider
             value={{
                 productsForPurchaseOnLocalStorage,
                 savePurchaseToLocalStorage,
+                address,
+                saveAddress,
             }}
         >
             {children}

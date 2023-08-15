@@ -35,7 +35,7 @@ const OrderBar = ({ setFormData, formData }) => {
         return total * pedido.quantidade;
     }
     return (
-        <div className={styles.orderBar}>
+        <div className={`${styles.orderBar} animate__backInLeft animate__animated animate__faster`}>
             <div className={styles.sizeButton} title="Quantidade">
                 <button
                     onClick={diminuirQuantidade}

@@ -51,7 +51,7 @@ const RenderInput = ({
                 <fieldset
                     key={index}
                     className={`${styles.fieldset} ${
-                        isInclude(option.name) ? styles.checked : ""
+                        isInclude(option.name) ? `${styles.checked} animate__pulse animate__animated animate__faster` : ""
                     }`}
                 >
                     <input

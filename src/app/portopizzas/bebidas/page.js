@@ -26,7 +26,9 @@ function Drink() {
 
     return (
         <>
-            <section className={styles.container}>
+            <section
+                className={`${styles.container} animate__backInDown animate__animated animate__faster`}
+            >
                 <Title text={"Refrigerantes"} />
                 <RenderInput
                     type={"radio"}

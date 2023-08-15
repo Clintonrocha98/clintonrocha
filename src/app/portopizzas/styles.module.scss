@@ -5,6 +5,7 @@
     position: relative;
     padding: 10px;
     min-height: 100vh;
+    overflow-x: hidden;
 
     > a {
         width: 100px;
@@ -26,3 +27,4 @@
             0px 8px 12px 6px rgba(0, 0, 0, 0.15);
     }
 }
+

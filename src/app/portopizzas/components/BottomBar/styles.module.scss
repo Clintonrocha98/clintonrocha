@@ -1,0 +1,57 @@
+.sacola {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 500px;
+    height: 70px;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    padding: 10px 20px;
+    margin: 0 auto;
+    border-radius: 10px 10px 0 0;
+
+    background-color: #c51605;
+
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+
+    > a {
+        svg {
+            color: white;
+            font-size: 30px;
+        }
+    }
+
+    .bag {
+        position: relative;
+        text-decoration: none;
+        color: #ffffff;
+
+        svg {
+            font-size: 30px;
+        }
+
+        span {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+
+            background-color: white;
+
+            border-radius: 10px;
+            width: 20px;
+            height: 20px;
+
+            text-align: center;
+
+            color: #c51605;
+        }
+    }
+}

@@ -1,10 +1,13 @@
 import "../../styles/reset.scss";
+import "./styles/styles.css";
+
 import { Roboto } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/react";
 import ContainerApp from "./components/ContainerApp";
 import { Toaster } from "react-hot-toast";
-import { LocalStorageProvider } from "@/hooks/useContext";
+import { LocalStorageProvider } from "@/app/portopizzas/hooks/useContext";
+import "animate.css";
 
 const roboto = Roboto({
     subsets: ["latin"],
@@ -12,9 +15,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-    title: "Pizzaria Porto",
+    title: "Porto Pizzas",
     description:
-        "Bem-vindo à Pizzaria Porto! Somos um lugar acolhedor onde você pode saborear deliciosas pizzas artesanais preparadas com ingredientes frescos e autênticos. Nossa atmosfera convida você a desfrutar de momentos saborosos com amigos e familiares. Venha se deliciar com nossas variedades de sabores únicos, unindo tradição e sabor de maneira especial.",
+        "Bem-vindo à Porto PizzaS! Somos um lugar acolhedor onde você pode saborear deliciosas pizzas artesanais preparadas com ingredientes frescos e autênticos. Nossa atmosfera convida você a desfrutar de momentos saborosos com amigos e familiares. Venha se deliciar com nossas variedades de sabores únicos, unindo tradição e sabor de maneira especial.",
     icons: { icon: "/favicon/logo.png" },
 };
 

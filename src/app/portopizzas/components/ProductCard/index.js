@@ -10,7 +10,7 @@ const ProductCard = ({ img, name, value, description }) => {
                     alt={`image monstrando uma pizza de ${name}, contendo os ingredientes ${description}`}
                 />
             )}
-            <div>
+            <div className={styles.containerText}>
                 <h2 className={styles.title}>{name}</h2>
                 {description && (
                     <p className={styles.description}>{description}</p>
