@@ -1,0 +1,47 @@
+.dropMenu {
+    position: absolute;
+    right: 0;
+    .menuButton {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        svg {
+            font-size: 25px;
+        }
+    }
+
+    .menu {
+        position: relative;
+        display: none;
+
+        &.open {
+            display: inline-block;
+        }
+
+        .pedido {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            position: absolute;
+            right: 0;
+            
+            width: 150px;
+            height: 40px;
+            
+            gap: 10px;
+            
+            background-color: white;
+            
+            border: 1px solid gray;
+            
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 900;
+            color: red;
+            
+            cursor: pointer;
+        }
+    }
+}

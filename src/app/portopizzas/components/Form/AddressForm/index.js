@@ -45,7 +45,7 @@ function AddressForm() {
                     label="complemento"
                     placeholder="Complemento"
                 />
-                <button type="submit"> Finalizar Pedido</button>
+                <button type="submit"> Adicionar Endereço</button>
             </form>
         </FormProvider>
     );

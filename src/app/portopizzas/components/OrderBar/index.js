@@ -34,8 +34,21 @@ const OrderBar = ({ setFormData, formData }) => {
 
         return total * pedido.quantidade;
     }
+    function completedApplication(pedido) {
+        if (pedido.sabores) {
+            const tamanhoPreenchido =
+                pedido.tamanho && pedido.tamanho.value !== "";
+            const saboresPreenchidos = pedido.sabores.length > 0;
+            const bordaPreenchida = pedido.borda && pedido.borda.value !== "";
+
+            return tamanhoPreenchido && saboresPreenchidos && bordaPreenchida;
+        }
+        return pedido.bebida.name !== "";
+    }
     return (
-        <div className={`${styles.orderBar} animate__backInLeft animate__animated animate__faster`}>
+        <div
+            className={`${styles.orderBar} animate__backInLeft animate__animated animate__faster`}
+        >
             <div className={styles.sizeButton} title="Quantidade">
                 <button
                     onClick={diminuirQuantidade}
@@ -56,7 +69,7 @@ const OrderBar = ({ setFormData, formData }) => {
             <BuyButton
                 product={formData}
                 className={styles.adcionarButton}
-                disabled={calcularTotal(formData) === 0}
+                disabled={!completedApplication(formData)}
             >
                 Adicionar R${calcularTotal(formData)}
             </BuyButton>

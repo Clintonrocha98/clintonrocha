@@ -27,6 +27,7 @@ function Pizza() {
         tamanho: { name: "", value: "" },
         borda: { name: "", value: "" },
         quantidade: 1,
+        observacao: "",
     });
 
     const handleInputChange = (fieldName, value) => {
@@ -34,6 +35,11 @@ function Pizza() {
             setFormData({
                 ...formData,
                 sabores: value,
+            });
+        } else if (fieldName === "observacao") {
+            setFormData({
+                ...formData,
+                observacao: value,
             });
         } else {
             setFormData({
@@ -108,6 +114,24 @@ function Pizza() {
                             onChange={handleInputChange}
                             selectedOption={formData.borda}
                         />
+                        <div>
+                        <Title
+                            text={"Observação"}
+                            subText={"Faça sua observação sobre o pedido (opcional)"}
+                        />
+                            <input
+                                className={styles.inputText}
+                                type="text"
+                                value={formData.observacao}
+                                onChange={(e) =>
+                                    handleInputChange(
+                                        "observacao",
+                                        e.target.value
+                                    )
+                                }
+                                placeholder="Exemplo: Retire as cebolas"
+                            />
+                        </div>
                     </section>
                 );
 

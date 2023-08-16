@@ -8,11 +8,11 @@ export const LocalStorageProvider = ({ children }) => {
         productsForPurchaseOnLocalStorage,
         setProductsForPurchaseOnLocalStorage,
     ] = useState([]);
-    const [address, setAddress] = useState([]);
+    const [address, setAddress] = useState({});
 
     useEffect(() => {
         const storedBuys = JSON.parse(localStorage.getItem("pizzaria")) || [];
-        const storedAddress = JSON.parse(localStorage.getItem("address")) || [];
+        const storedAddress = JSON.parse(localStorage.getItem("address")) || {};
         setAddress(storedAddress);
         setProductsForPurchaseOnLocalStorage(storedBuys);
     }, []);
