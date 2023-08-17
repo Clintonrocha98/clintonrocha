@@ -26,7 +26,7 @@ const PizzaOverView = ({ orderData }) => {
     };
     return (
         <div className={styles.PizzaOverView}>
-            <Title text={"Pedidos"} />
+            <Title text={"Pedidos"} className={styles.title}/>
             {orderData.map((item, index) => (
                 <div key={index}>
                     {item.bebida && (

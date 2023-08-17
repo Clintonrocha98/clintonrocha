@@ -5,6 +5,7 @@ import { zodAddresFormSchema, defaultValues } from "@/utils/form";
 import { InputText } from "../InputText";
 import { useContext } from "react";
 import { LocalStorageContext } from "@/app/portopizzas/hooks/useContext";
+import styles from "./styles.module.scss";
 
 function AddressForm() {
     const methods = useForm({
@@ -20,7 +21,10 @@ function AddressForm() {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={methods.handleSubmit(onSubmit)}>
+            <form
+                onSubmit={methods.handleSubmit(onSubmit)}
+                className={styles.form}
+            >
                 <InputText
                     type="text"
                     name="endereco"
@@ -42,7 +46,7 @@ function AddressForm() {
                 <InputText
                     type="text"
                     name="complemento"
-                    label="complemento"
+                    label="Complemento"
                     placeholder="Complemento"
                 />
                 <button type="submit"> Adicionar Endereço</button>

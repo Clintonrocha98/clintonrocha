@@ -1,0 +1,28 @@
+.header {
+    background-image: url("/banner2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 280px;
+    display: flex;
+    align-items: flex-end;
+    max-width: 500px;
+    margin: 0 auto;
+
+    .containerText {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 20px;
+        border-radius: 1rem 1rem 0 0;
+        background: #161616;
+        padding: 20px;
+
+        color: white;
+        font-size: 1.125rem;
+
+        img {
+            width: 4rem;
+        }
+    }
+}

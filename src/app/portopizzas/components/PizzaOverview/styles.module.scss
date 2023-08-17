@@ -4,9 +4,14 @@
     padding: 10px;
     font-weight: 500;
     font-size: 1rem;
-    margin-bottom: 100px;
     position: relative;
-
+    .title {
+        padding: 10px;
+        h1 {
+            font-size: 1.5rem;
+            color: black;
+        }
+    }
     .order {
         display: flex;
         align-items: center;
