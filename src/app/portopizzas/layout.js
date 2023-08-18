@@ -1,12 +1,10 @@
 import "../../styles/reset.scss";
-import "./styles/styles.css";
 
 import { Roboto } from "next/font/google";
-
-import { Analytics } from "@vercel/analytics/react";
-import ContainerApp from "./components/ContainerApp";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/react";
 import { LocalStorageProvider } from "@/app/portopizzas/hooks/useContext";
+import ContainerApp from "./components/ContainerApp";
 import "animate.css";
 
 const roboto = Roboto({
@@ -16,8 +14,7 @@ const roboto = Roboto({
 
 export const metadata = {
     title: "Porto Pizzas",
-    description:
-        "Bem-vindo à Porto PizzaS! Somos um lugar acolhedor onde você pode saborear deliciosas pizzas artesanais preparadas com ingredientes frescos e autênticos. Nossa atmosfera convida você a desfrutar de momentos saborosos com amigos e familiares. Venha se deliciar com nossas variedades de sabores únicos, unindo tradição e sabor de maneira especial.",
+    description: "Porto Pizzas!, faça seu pedido!",
     icons: { icon: "/favicon/logo.png" },
 };
 
