@@ -20,11 +20,11 @@ export default function Home() {
                 "Neste projeto, realizei o redesign do site da renomada marca de calçados Paquetá Calçados. O objetivo foi expandir sua presença online e proporcionar aos clientes uma experiência digital atraente e funcional.",
         },
         {
-            name: "Tupe",
-            link: "https://tupe.vercel.app/",
-            preview: "/assets/tupe-preview.webp",
+            name: "Pomolist",
+            link: "https://pomo-list-front-end.vercel.app/",
+            preview: "/assets/pomolist-preview.webp",
             description:
-                "O projeto Tupe foi desenvolvido para mostrar de forma direta e simplificada os produtos de um e-commerce. Com uma interface minimalista, o objetivo principal é direcionar os clientes interessados diretamente para o WhatsApp da loja, facilitando a comunicação e o processo de compra.",
+                "O PomoList é uma aplicação web minimalista projetada para ajudar os usuários a aumentar sua produtividade. Os usuários podem criar listas de tarefas, e acompanhar seu progresso de forma simples e eficiente.",
         },
     ];
     return (
