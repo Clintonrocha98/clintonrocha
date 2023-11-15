@@ -36,6 +36,11 @@
                 font-size: 18px;
                 text-align: justify;
                 line-height: 25px;
+                @media screen and (max-width: 320px) {
+                    font-size: 15px;
+                    text-align: justify;
+                    line-height: 20px;
+                }
             }
         }
     }

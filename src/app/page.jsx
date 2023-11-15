@@ -6,25 +6,24 @@ import { HiOutlineMail } from "react-icons/hi";
 export default function Home() {
     const projects = [
         {
+            name: "Pomolist",
+            link: "https://pomo-list-front-end.vercel.app/",
+            preview: "/assets/pomolist-preview.webp",
+            description:
+                "O PomoList é uma aplicação web minimalista projetada para ajudar os usuários a aumentar sua produtividade. Os usuários podem criar listas de tarefas, e acompanhar seu progresso de forma simples e eficiente.",
+        },
+        {
             name: "Blizzard",
             link: "https://blizzard-brchallenges.vercel.app/",
             preview: "/assets/blizzard-preview.webp",
-            description:
-                "Esse projeto é uma landing page da empresa Blizzard, ela é composta por um menu de navegação, um banner hero com as informações dos principais jogos da empresa(Diablo, HearthStone e World of Warcraft), a listagem dos jogos exclusivos e um rodapé com informações do download do app battle.net.",
+            description: "Esse projeto é uma landing page da empresa Blizzard",
         },
         {
             name: "Paquetá",
             link: "https://desafio-3-brchallenges.vercel.app/",
             preview: "/assets/paqueta-preview.webp",
             description:
-                "Neste projeto, realizei o redesign do site da renomada marca de calçados Paquetá Calçados. O objetivo foi expandir sua presença online e proporcionar aos clientes uma experiência digital atraente e funcional.",
-        },
-        {
-            name: "Pomolist",
-            link: "https://pomo-list-front-end.vercel.app/",
-            preview: "/assets/pomolist-preview.webp",
-            description:
-                "O PomoList é uma aplicação web minimalista projetada para ajudar os usuários a aumentar sua produtividade. Os usuários podem criar listas de tarefas, e acompanhar seu progresso de forma simples e eficiente.",
+                "Neste projeto, redesign do site da renomada marca de calçados Paquetá Calçados.",
         },
     ];
     return (

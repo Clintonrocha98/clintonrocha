@@ -5,6 +5,12 @@
     background-size: cover;
     background-color: #161616;
     background-attachment: fixed;
+    animation: oscilacao 5s alternate infinite ease-in-out;
+
+    @media screen and (max-width: 320px) {
+        animation: oscilacao2 5s alternate infinite ease-in-out;
+    }
+
     .content {
         max-width: 1440px;
         margin: 0 auto;
@@ -67,8 +73,8 @@
             @media screen and (max-width: 320px) {
                 padding: 0 10px;
                 h1 {
-                    font-size: 25px;
-                    line-height: 45px;
+                    font-size: 20px;
+                    line-height: 25px;
                 }
             }
         }
@@ -121,11 +127,17 @@
             > h1 {
                 font-size: 42px;
             }
+
             > p {
                 max-width: 1024px;
                 text-align: center;
                 line-height: 25px;
                 font-size: 20px;
+                @media screen and (max-width: 320px) {
+                    line-height: 20px;
+                    font-size: 16px;
+                    margin: 0 10px;
+                }
             }
             .containerCards {
                 display: flex;
@@ -193,5 +205,28 @@
                 }
             }
         }
+    }
+}
+@keyframes oscilacao {
+    0% {
+        background-size: 200%;
+        
+    }
+    50% {
+        background-size: 250%;
+    }
+    100% {
+        background-size: 300%;
+    }
+}
+@keyframes oscilacao2 {
+    0% {
+        background-size: 600%;
+    }
+    50% {
+        background-size: 700%;
+    }
+    100% {
+        background-size: 800%;
     }
 }
