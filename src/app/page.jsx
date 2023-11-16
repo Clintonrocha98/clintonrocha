@@ -1,6 +1,6 @@
 import Card from "@/components/card";
+import SocialLinks from "@/components/SocialLinks";
 import styles from "../styles/styles.module.scss";
-import { BsWhatsapp, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 
 export default function Home() {
@@ -30,44 +30,7 @@ export default function Home() {
         <main className={styles.Main}>
             <section className={styles.content}>
                 <header>
-                    <div className={styles.links}>
-                        <a href="https://wa.me/5573988599299" target="_blank">
-                            Whatsapp
-                        </a>{" "}
-                        /{" "}
-                        <a
-                            href="https://www.instagram.com/clinton_rocha98/"
-                            target="_blank"
-                        >
-                            Instagram
-                        </a>{" "}
-                        /{" "}
-                        <a
-                            href="https://www.linkedin.com/in/clintonrocha/"
-                            target="_blank"
-                        >
-                            Linkedin
-                        </a>
-                    </div>
-
-                    <div className={styles.icons}>
-                        <a href="https://wa.me/5573988599299" target="_blank">
-                            <BsWhatsapp />
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/clinton_rocha98/"
-                            target="_blank"
-                        >
-                            <BsInstagram />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/clintonrocha/"
-                            target="_blank"
-                        >
-                            <BsLinkedin />
-                        </a>
-                    </div>
+                    <SocialLinks />
                 </header>
 
                 <section className={styles.perfil}>
@@ -269,44 +232,7 @@ export default function Home() {
 
                 <footer>
                     <p>© 2023 All rights reserved.</p>
-                    <div className={styles.links}>
-                        <a href="https://wa.me/5573988599299" target="_blank">
-                            Whatsapp
-                        </a>{" "}
-                        /{" "}
-                        <a
-                            href="https://www.instagram.com/clinton_rocha98/"
-                            target="_blank"
-                        >
-                            Instagram
-                        </a>{" "}
-                        /{" "}
-                        <a
-                            href="https://www.linkedin.com/in/clintonrocha/"
-                            target="_blank"
-                        >
-                            Linkedin
-                        </a>
-                    </div>
-
-                    <div className={styles.icons}>
-                        <a href="https://wa.me/5573988599299" target="_blank">
-                            <BsWhatsapp />
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/clinton_rocha98/"
-                            target="_blank"
-                        >
-                            <BsInstagram />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/clintonrocha/"
-                            target="_blank"
-                        >
-                            <BsLinkedin />
-                        </a>
-                    </div>
+                    <SocialLinks />
                 </footer>
             </section>
         </main>

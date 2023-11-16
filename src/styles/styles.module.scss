@@ -27,22 +27,6 @@
                 color: #9a9a9a;
                 cursor: pointer;
             }
-            .icons {
-                display: none;
-                svg {
-                    font-size: 25px;
-                }
-            }
-            @media screen and (max-width: 425px) {
-                .links {
-                    display: none;
-                }
-                .icons {
-                    display: flex;
-                    gap: 20px;
-                    font-size: 25px;
-                }
-            }
         }
 
         .perfil {
@@ -188,9 +172,7 @@
                 color: #9a9a9a;
                 cursor: pointer;
             }
-            .icons {
-                display: none;
-            }
+
             @media screen and (max-width: 425px) {
                 p {
                     font-size: 14px;
@@ -210,7 +192,6 @@
 @keyframes oscilacao {
     0% {
         background-size: 200%;
-        
     }
     50% {
         background-size: 250%;
